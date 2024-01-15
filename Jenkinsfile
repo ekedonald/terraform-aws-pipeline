@@ -29,7 +29,7 @@ pipeline {
             //when {
                 //expression { env.BRANCH_NAME == 'main' }
                 //expression { currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause) != null }
-            }
+            //}
             steps {
                 script {
         //             // Ask for manual confirmation before applying changes
