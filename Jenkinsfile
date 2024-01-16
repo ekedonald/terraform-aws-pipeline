@@ -25,7 +25,7 @@ pipeline {
             }
         }
 
-        //stage('Terraform apply') {
+        //istage('Terraform apply') {
             //when {
                 //expression { env.BRANCH_NAME == 'main' }
                 //expression { currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause) != null }
@@ -43,12 +43,12 @@ pipeline {
             //}
         //}
 
-        //stage('Terraform Destroy') {
-            //steps {
-                //script {
-                    //sh 'terraform destroy -auto-approve'
-                //}
-           //}
-        //}
+        stage('Terraform apply1') {
+            steps {
+                script {
+                    sh 'terraform destroy -auto-approve'
+                }
+           }
+        }
     }
 }
