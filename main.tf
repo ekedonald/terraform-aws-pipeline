@@ -16,7 +16,7 @@ data "aws_availability_zones" "available" {}
 locals {
   name            = "darey-liveclass-cluster"
   cluster_version = "1.28"
-  region          = "us-east-1"
+  region          = "us-west-1"
 
   vpc_cidr = "10.0.0.0/16"
   azs      = slice(data.aws_availability_zones.available.names, 0, 3)
@@ -32,7 +32,7 @@ locals {
 
 module "eks" {
   source = "terraform-aws-modules/eks/aws"
-  version = "~> 19.0"
+  version = "~> 18.0"
   cluster_name                   = local.name
   cluster_version                = local.cluster_version
   cluster_endpoint_public_access = true
