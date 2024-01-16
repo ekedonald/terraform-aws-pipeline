@@ -19,8 +19,8 @@ pipeline {
                 script {
                     withCredentials([aws(credentialsId: 'AWS_CRED', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                         //sh 'terraform init'
-                        //sh 'terraform plan -out=tfplan'
-                        sh 'terraform destroy -auto-approve'
+                        sh 'terraform plan -out=tfplan'
+                        //sh 'terraform destroy -auto-approve'
                     }
                 }
             }
@@ -44,12 +44,12 @@ pipeline {
             //}
         //}
 
-        //stage('Terraform Destroy') {
-            //steps {
-                //script {
-                    //sh 'terraform destroy -auto-approve'
-                //}
-           //}
-        //}
+        stage('Terraform Destroy') {
+            steps {
+                script {
+                    sh 'terraform destroy -auto-approve'
+                }
+           }
+        }
     }
 }
