@@ -6,6 +6,6 @@ terraform {
   backend "s3" {
     bucket = "ekeikenna-buckets1"
     key    = "terraform.tfstate"
-    region = "us-east-1"
+    region = "eu-west-2"
   }
 }
