@@ -15,7 +15,7 @@ data "aws_availability_zones" "available" {}
 
 locals {
   name            = "darey-liveclass-cluster"
-  cluster_version = "1.28"
+  cluster_version = "1.24"
   region          = "eu-west-2"
 
   vpc_cidr = "10.0.0.0/16"
@@ -32,7 +32,7 @@ locals {
 
 module "eks" {
   source = "terraform-aws-modules/eks/aws"
-  version = "~> 18.0"
+  version = "~> 19.0"
   cluster_name                   = local.name
   cluster_version                = local.cluster_version
   cluster_endpoint_public_access = true
@@ -347,7 +347,7 @@ module "vpc_cni_irsa" {
 
 module "ebs_kms_key" {
   source  = "terraform-aws-modules/kms/aws"
-  version = "~> 2.0.1"
+  version = "~> 1.5"
 
   description = "Customer managed key to encrypt EKS managed node group volumes"
 
